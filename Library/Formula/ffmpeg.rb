@@ -1,8 +1,8 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-2.8.3.tar.bz2"
-  sha256 "1bcf993a71839bb4a37eaa0c51daf315932b6dad6089f672294545cc51a5caf6"
+  url "http://ffmpeg.org/releases/ffmpeg-3.4.tar.bz2"
+  sha256 "5d8911fe6017d00c98a359d7c8e7818e48f2c0cc2c9086a986ea8cb4d478c85e"
 
   head "https://github.com/FFmpeg/FFmpeg.git"
 
