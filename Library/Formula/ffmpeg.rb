@@ -74,7 +74,7 @@ class Ffmpeg < Formula
   if build.with? "decklink"
     # patch `common.mk` for using `clang++` to compile `.cpp` files,
     # by removing `-std=c99` from `CXXFLAGS`.
-    patch :DATA
+    #patch :DATA
   end
 
   def install
