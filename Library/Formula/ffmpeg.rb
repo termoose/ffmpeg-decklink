@@ -90,11 +90,6 @@ class Ffmpeg < Formula
   depends_on "zimg" => :optional
   depends_on "decklink" if build.with? "decklink"
 
-  if build.with? "decklink"
-    patch :DATA
-    patch :p0, :DATA
-  end
-
   def install
     args = %W[
       --prefix=#{prefix}
@@ -185,19 +180,3 @@ class Ffmpeg < Formula
     assert mp4out.exist?
   end
 end
-
-__END__
-diff --git a/common.mak b/common.mak
-index 20b7fa3..2851b33 100644
---- a/common.mak
-+++ b/common.mak
-@@ -37,7 +37,8 @@ CPPFLAGS   := $(IFLAGS) $(CPPFLAGS)
- CFLAGS     += $(ECFLAGS)
- CCFLAGS     = $(CPPFLAGS) $(CFLAGS)
- ASFLAGS    := $(CPPFLAGS) $(ASFLAGS)
--CXXFLAGS   += $(CPPFLAGS) $(CFLAGS)
-+STDC99FLAG := -std=c99
-+CXXFLAGS   += $(CPPFLAGS) $(filter-out $(STDC99FLAG),$(CFLAGS))
- YASMFLAGS  += $(IFLAGS:%=%/) -Pconfig.asm
-
- HOSTCCFLAGS = $(IFLAGS) $(HOSTCPPFLAGS) $(HOSTCFLAGS)
