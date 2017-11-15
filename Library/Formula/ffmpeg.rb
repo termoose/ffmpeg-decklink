@@ -92,6 +92,7 @@ class Ffmpeg < Formula
 
   if build.with? "decklink"
     patch :DATA
+    patch :p0, :DATA
   end
 
   def install
